@@ -1,0 +1,413 @@
+Gitとは
+バージョン管理システム
+
+
+土のファイルの何を
+
+誰が
+
+いつ
+
+何のために
+
+変更したかを残せる
+
+最新のファイルが分かる
+
+複数人での作業が楽
+
+元の状態にも戻せる
+
+＜Gitの仕組み＞
+①変更履歴を時系列として記録できる。
+　記録する際はメッセージをつける
+記録1　◎◎機能追加
+記録2　文言追加
+記録3　速度向上
+
+②開発の流れ
+リポジトリ：変更履歴を記録する場所
+コミット　：委託する（預ける）
+
+プッシュ⇒共有リポジトリに登録する（サーバー上に挙げる）
+
+プル：共有リポジトリ⇒個人に持ってくる。
+
+＜Git Hubとは＞
+Gitrリポジトリ（コード）のホスティングサービス
+ソーシャルコーディングの場
+
+
+Git
+（個人リポジトリ）　　⇒（コードアズかつてよ）　⇒GitHub
+
+
+特徴
+プルリクエストによるコラボレーション
+取り込める？取り込めない？で色々やりとりできて、複数人開発でできる。
+世界中の複数人で開発ができる。
+
+＜bitBucketというものがある＞
+
+代表的なものに
+
+非公開リポジトリは有料。公開リポジトリは無料
+
+BitBuket
+
+非公開リポジトリを無料作成。公開負荷のプロジェクト向き
+
+
+すでにGitを使われたことがある方や、受講後により実践的なスキルをマスターされたいと思われた方は、中級編である「もう怖くないGit！チーム開発で必要なGitをハンズオンで完全マスター」のコースをご受講ください
+https://www.udemy.com/unscared_git/learn/v4/overview
+
+
+Git for Windows と検索してGit　をインストール
+
+Gitがインストールできているか？はGitbashというコマンドツールを立上げ、
+git version　と打つと現在のバージョンがでればインストール　OK
+
+GitHubの登録
+
+Gitの初期設定
+Gitbit で行う
+①$ git config --global user.name "masaki-takayanagi"
+
+②$ git config --global user.email "yanagi-ichizoku@jcom.zaq.ne.jp"
+
+ローカルリポジトリの新規作成
+リポジトリとはファイルやディレクトリの状態。変更履歴を記録する場所
+git initi コマンドでリポジトリを新規作成する
+
+ろーかるリポジトリの作成
+git init
+※初期化。gitディレクトリが作成される。
+
+ファイルを管理する。
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~
+$ cd ~/DeskTop
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop
+$ cd intro_git
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git
+$ ls
+first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git
+$
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git
+$ git init
+Initialized empty Git repository in C:/Users/鬮俶浹荳譌・Desktop/intro_git/.git/
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ls -a
+./  ../  .git/  first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ls -a
+./  ../  .git/  first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ls -a .git/
+./  ../  config  description  HEAD  hooks/  info/  objects/  refs/
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+
+
+基本的なワークフロー
+①ファイルの変更をスエージングエリアへ追加する　※控室
+②ローカルリポジトリにコミットする
+③リモートリポジトリにプッシュする。
+
+
+
+iで書き込み
+escで終わり
+：ｗｑで終わる
+
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ls
+first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git add first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit
+[master (root-commit) 54d776e] initial commit
+ 1 file changed, 4 insertions(+)
+ create mode 100644 first.txt
+
+
+gitHubで新しいリポジトリを作成する。
+※
+↓↓↓この文面をコピーしてきて、git bitエディター画面に貼る。
+
+…またはコマンドラインから既存のリポジトリをプッシュする
+git remote add origin https://github.com/masaki-takayanagi/intro_git.git　⇒これだ大事
+ git push -u origin master
+
+
+↓↓↓↓
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git remote add origin https://github.com/masaki-takayanagi/intro_git.git
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git push-u origin master
+git: 'push-u' is not a git command. See 'git --help'.
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 301 bytes | 301.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/masaki-takayanagi/intro_git.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+
+
+
+＜変更を恋っとする流れ＞
+ファイルを変更したら
+①ステージングエリアへ追加
+②リポジトリにメッセージをつけてコミット
+
+
+ステージングエリアに変更を追加しよう
+
+複数ファイルを変更した時にコミットするファイルを選択するためにあるのが
+ステージングエリア
+
+git add . ⇒全て
+git add ファイル名　⇒ファイルだけ
+
+
+コミットして変更を記録しよう
+
+変更にメッセージをつけてリポジトリに記録するのがコミット。
+コミットする事で変更がリポジトリ内に時系列で記録される。
+
+リポジトリに変更を記録する。
+git commit 
+※メッセージ付きで記録するよ
+
+ひとつの作業ごとに1コミット
+どの作業を何のためにしたのか、すぐ振り返られるようにしといてね。
+
+
+わかりやすいコミットメッセージを書こう
+
+他のメンバーが「何をどうして変更したのか」
+わかるようなメッセージをつけよう
+
+①変更内容の要約
+②空業
+③変更した理由
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ^C
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git add .
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   first.txt
+
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit -v
+[master ab99195] add , commit縺ｮ繧ｳ繝槭Φ繝峨ｒ霑ｽ險・ 1 file changed, 2 insertions(+)
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git log
+commit ab99195e772702ad65499d7e9201e4d7b9a3d137 (HEAD -> master)
+Author: masaki-takayanagi <yanagi-ichizoku@jcom.zaq.ne.jp>
+Date:   Thu Jul 23 14:44:07 2020 +0900
+
+    add , commitのコマンドを追記
+
+    講座3-4を受講したから
+
+commit 54d776ec3a8db2ca375340f26679c5e2a80fafd2 (origin/master)
+Author: masaki-takayanagi <yanagi-ichizoku@jcom.zaq.ne.jp>
+Date:   Thu Jul 23 14:26:28 2020 +0900
+
+    initial commit
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$
+
+
+色々な変更をコミットできます。
+
+新規作成
+ファイルの削除
+複数ファイルの変更
+
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git add second.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit -v
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ ls
+first.txt  second.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ rm second.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git rm second.txt
+rm 'second.txt'
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit -v
+[master 4280f5a] second.txt縺ｮ蜑企勁
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 second.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git add .
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit -v
+[master 07bf14e] 隍・焚繝輔ぃ繧､繝ｫ縺ｮ繧ｳ繝溘ャ繝・ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 second.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$
+
+
+
+
+git status コマンド　⇒状況を確認する。
+※編子の差分が表示される。
+よく使うコマンドだよ。
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git add first.txt
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   first.txt
+
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git commit -v
+[master 6e1f132] git status繧ｳ繝槭Φ繝峨ｒ霑ｽ險・ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+高柳一族@LAPTOP-FSRCUACL MINGW64 ~/DeskTop/intro_git (master)
+$
+
+<変更履歴を確認する>
+
+git logコマンドでリポジトリにコミットされたログを確認する
+
+ハッシュ値を確認する。
+
+色々なオプション
+・git log --oneline 1行のみ表示
+・git log -p index.html ファイルの差分を表示する。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
